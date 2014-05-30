@@ -7,12 +7,12 @@ from setuptools import find_packages
 print find_packages()
 
 setup(
-    name = 'WiloPLR',
+    name = 'pywilo',
     version = '0.1',
     description= "WiloPLR library",
     author = 'Christoph Schueler',
     author_email = 'cpu12.gems@googlemail.com',
     url = 'https://github.com/christoph2/WiloPLR',
-    packages = ['wiloplr',],
+    packages = ['pywilo',],
     install_requires = ['pyserial'],
 )
