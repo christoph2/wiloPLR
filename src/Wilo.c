@@ -23,51 +23,51 @@
 ** s. FLOSS-EXCEPTION.txt
 */
 
-#define WRITE(x)
+#include "Wilo.h"
 
 #define DP_CHECKSUM(dp) ((dp).address + (dp).type + (dp).valueHi + (dp).valueLo)
 
 
-static void writeDatapoint(Wilo_DatapointType const * const dataPoint);
+static void writeDatapoint(void (*writeFunction)(uint8 ch), Wilo_DatapointType const * const dataPoint);
 
 
-void Wilo_WriteRequest(uint8 address, uint8 telegramType,
+void Wilo_WriteRequest(void (*writeFunction)(uint8 ch), uint8 address, uint8 telegramType,
     uint8 numberOfWritePoints, Wilo_DatapointType const * const writePoints,
     uint8 numberOfReadPoints, Wilo_DatapointType const * const readPoints) {
 
     uint8 idx;
     uint8 checksum = address + telegramType;
 
-    WRITE(address);
-    WRITE(telegramType)
+    writeFunction(address);
+    writeFunction(telegramType);
 
     checksum += numberOfWritePoints;
-    WRITE(numberOfWritePoints);
+    writeFunction(numberOfWritePoints);
 
     for (idx = (uint8)0; idx < numberOfWritePoints; ++idx) {
         checksum += DP_CHECKSUM(writePoints[idx]);
-        writeDatapoint(&writePoints[idx])
+        writeDatapoint(writeFunction, &writePoints[idx]);
     }
 
 
     checksum += numberOfReadPoints;
-    WRITE(numberOfReadPoints);
+    writeFunction(numberOfReadPoints);
 
     for (idx = (uint8)0; idx < numberOfReadPoints; ++idx) {
         checksum += DP_CHECKSUM(readPoints[idx]);
-        writeDatapoint(&readPoints[idx])
+        writeDatapoint(writeFunction, &readPoints[idx]);
     }
 
-    WRITE(checksum);
+    writeFunction(checksum);
 }
 
 
-static void writeDatapoint(Wilo_DatapointType const * const dataPoint);
+static void writeDatapoint(void (*writeFunction)(uint8 ch), Wilo_DatapointType const * const dataPoint)
 {
 
-    WRITE(dataPoint->address);
-    WRITE(dataPoint->type);
-    WRITE(dataPoint->valueHi);
-    WRITE(dataPoint->valueLo);
+    writeFunction(dataPoint->address);
+    writeFunction(dataPoint->type);
+    writeFunction(dataPoint->valueLo);
+    writeFunction(dataPoint->valueHi);
 }
 

@@ -33,7 +33,7 @@ typedef struct tagWilo_DatapointType {
 } Wilo_DatapointType;
 
 
-void Wilo_WriteRequest(uint8 address, uint8 telegramType, 
+void Wilo_WriteRequest(void (*writeFunction)(uint8 ch), uint8 address, uint8 telegramType, 
     uint8 numberOfWritePoints, Wilo_DatapointType const * const writePoints, 
     uint8 numberOfReadPoints, Wilo_DatapointType const * const readPoints
 );
