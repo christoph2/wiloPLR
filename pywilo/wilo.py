@@ -55,7 +55,7 @@ class Datapoint(object):
         return (self.address +  self.type_ + self.valueHi + self.valueLo) % 256
 
     def _getData(self):
-        return [self.address, self.type_, self.valueHi, self.valueLo]
+        return [self.address, self.type_, self.valueLo, self.valueHi]
 
     address = property(_getAddress)
     type_ = property(_getType)
