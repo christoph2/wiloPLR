@@ -23,6 +23,15 @@
 ** s. FLOSS-EXCEPTION.txt
 */
 
+#if !defined(__PARAMETERS_H)
+#define __PARAMETERS_H
+
+#if defined(__cplusplus)
+extern "C"
+{
+#endif  /* __cplusplus */
+
+
 #define WILO_REQUEST_TELEGRAM               ((uint8)0x03)
 #define WILO_RESPONSE_TELEGRAM              ((uint8)0x00)
 
@@ -73,4 +82,11 @@
 #define WILO_ERROR_MESSAGE                  ((uint8)37)
 #define WILO_PUMP_STATUS                    ((uint8)38)
 #define WILO_STATE_DIAGNOSTICS              ((uint8)39)
+
+
+#if defined(__cplusplus)
+}
+#endif  /* __cplusplus */
+
+#endif  /* __PARAMETERS_H */
 

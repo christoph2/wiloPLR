@@ -23,6 +23,15 @@
 ** s. FLOSS-EXCEPTION.txt
 */
 
+#if !defined(__LPDU_H)
+#define __LPDU_H
+
+#if defined(__cplusplus)
+extern "C"
+{
+#endif  /* __cplusplus */
+
+
 #include "Types.h"
 
 typedef struct tagWilo_DatapointType {
@@ -38,4 +47,10 @@ void Wilo_WriteRequest(void (*writeFunction)(uint8 ch), uint8 address, uint8 tel
     uint8 numberOfReadPoints, Wilo_DatapointType const * const readPoints
 );
 
+
+#if defined(__cplusplus)
+}
+#endif  /* __cplusplus */
+
+#endif  /* __LPDU_H */
 
