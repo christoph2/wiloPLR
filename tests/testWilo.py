@@ -26,6 +26,7 @@
 ## s. FLOSS-EXCEPTION.txt
 ##
 
+import unittest
 from pywilo.serialport import SerialPort
 from pywilo.wilo import WiloPump, Datapoint
 import pywilo.parameters as parameters
@@ -39,9 +40,13 @@ class MockPort(object):
         pass
 
 
+class Test0(unittest.TestCase):
+    pass
+
 # TEL0 =(1, 3,    3,  40,  1, 9, 0,    42, 1, 3, 0,    1, 32, 80, 0,  0)
 
 wp = WiloPump(MockPort())
 #wp.write(3, REQUEST, [Datapoint(0x47, 1, 0x03f3)], [])
-wp.write(1, parameters.REQUEST, [Datapoint(40, 1, 0x0900), Datapoint(42, 1, 0x0300), Datapoint(1, 32, 0x8000)], [])
+wp.write(1, parameters.REQUEST, [Datapoint(40, 1, 0x0009), Datapoint(42, 1, 0x0003), Datapoint(1, 32, 0x0050)], [])
 
+unittest.main()

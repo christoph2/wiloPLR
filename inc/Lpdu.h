@@ -23,3 +23,19 @@
 ** s. FLOSS-EXCEPTION.txt
 */
 
+#include "Types.h"
+
+typedef struct tagWilo_DatapointType {
+    uint8 address;
+    uint8 type;
+    uint8 valueHi;
+    uint8 valueLo;
+} Wilo_DatapointType;
+
+
+void Wilo_WriteRequest(uint8 address, uint8 telegramType, 
+    uint8 numberOfWritePoints, Wilo_DatapointType const * const writePoints, 
+    uint8 numberOfReadPoints, Wilo_DatapointType const * const readPoints
+);
+
+
