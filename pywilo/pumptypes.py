@@ -21,7 +21,7 @@
 ##
 ## s. FLOSS-EXCEPTION.txt
 ##
-#
+
 
 WILO_PT_TOP_E40_1_10_EP_DP           = 1
 WILO_PT_TOP_E50_1_7_EP_DP            = 2
