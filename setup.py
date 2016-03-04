@@ -14,5 +14,5 @@ setup(
     author_email = 'cpu12.gems@googlemail.com',
     url = 'https://github.com/christoph2/WiloPLR',
     packages = ['pywilo',],
-    install_requires = ['pyserial'],
+    install_requires = ['pyserial', 'enum34'],
 )
