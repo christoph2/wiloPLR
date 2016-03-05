@@ -4,7 +4,7 @@
 ##
 ## WiloPLR - Communication with Wilo pumps.
 ##
-## (C) 2009-2014 by Christoph Schueler <github.com/Christoph2,
+## (C) 2009-2016 by Christoph Schueler <github.com/Christoph2,
 ##                                      cpu12.gems@googlemail.com>
 ##
 ##
