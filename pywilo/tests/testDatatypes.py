@@ -26,7 +26,7 @@
 ## s. FLOSS-EXCEPTION.txt
 ##
 
-from pywilo.datatypes import DataTypeConverter
+from pywilo.datatypes import DataType, DataTypeConverter
 import unittest
 
 class TestDataTypeConversion(unittest.TestCase):
