@@ -15,4 +15,5 @@ setup(
     url = 'https://github.com/christoph2/WiloPLR',
     packages = ['pywilo',],
     install_requires = ['pyserial', 'enum34', 'mock'],
+    test_suite="pywilo.tests",
 )
