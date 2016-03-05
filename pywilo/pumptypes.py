@@ -80,7 +80,7 @@ WILO_PT_STRATOS_25_1_6_EP            = 51
 WILO_PT_STRATOS_30_1_6_EP            = 52
 WILO_PT_STRATOS_40_1_4_EP            = 53
 WILO_PT_STRATOS_25_1_8_EP            = 54
-WILO_PT_STRATOS_30_1_8 _EP_DP        = 55
+WILO_PT_STRATOS_30_1_8_EP_DP         = 55
 WILO_PT_STRATOS_25_1_12_EP           = 56
 
 WILO_PT_MHIE205                      = 60
