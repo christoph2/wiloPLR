@@ -1,6 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+##
 ## WiloPLR - Communication with Wilo pumps.
 ##
-## (C 2009-2013 by Christoph Schueler <github.com/Christoph2,
+## (C) 2009-2016 by Christoph Schueler <github.com/Christoph2,
 ##                                      cpu12.gems@googlemail.com>
 ##
 ##
@@ -62,7 +66,7 @@ WILO_PT_IP_E40_160_4_2_EP_DP         = 38
 WILO_PT_IP_E65_140_4_2_EP_DP         = 39
 
 WILO_PT_STRATOS_30_1_12_EP           = 40
-WILO_PT_STRATOS_40_1_8_ EP_DP        = 41
+WILO_PT_STRATOS_40_1_8_EP_DP        = 41
 WILO_PT_STRATOS_50_1_8_EP_DP         = 42
 WILO_PT_STRATOS_32_1_12_EP_DP        = 43
 WILO_PT_STRATOS_40_1_12_EP_DP        = 44

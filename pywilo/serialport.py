@@ -3,7 +3,7 @@
 
 ## WiloPLR - Communication with Wilo pumps.
 ##
-## (C 2009-2013 by Christoph Schueler <github.com/Christoph2,
+## (C 2009-2016 by Christoph Schueler <github.com/Christoph2,
 ##                                      cpu12.gems@googlemail.com>
 ##
 ##
@@ -35,7 +35,7 @@ import threading
 try:
     import serial
 except ImportError:
-    print "pySerial not installed.\nExiting."
+    print("pySerial not installed.\nExiting.")
     sys.exit(1)
 
 class SerialPort(object):
