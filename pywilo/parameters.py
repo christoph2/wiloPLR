@@ -4,7 +4,7 @@
 ##
 ## WiloPLR - Communication with Wilo pumps.
 ##
-## (C) 2009-2014 by Christoph Schueler <github.com/Christoph2,
+## (C) 2009-2016 by Christoph Schueler <github.com/Christoph2,
 ##                                      cpu12.gems@googlemail.com>
 ##
 ##
@@ -26,34 +26,34 @@
 ## s. FLOSS-EXCEPTION.txt
 ##
 
-BAUDRATES = (
-        1200,
-        2400,
-        4800,
-        9600,
-        19200,
-        38400,
-        57600,
-        76800,
-        115200
-)
+from collections import namedtuple
+import enum
 
-REQUEST     = 3
-RESPONSE    = 0
+class Baudrate(enum.IntEnum):
+    """Supported baudrates."""
+    B1200    = 0
+    B2400    = 1
+    B4800    = 2
+    B9600    = 3
+    B19200   = 4
+    B38400   = 5
+    B57600   = 6
+    B76800   = 7
+    B115200  = 8
 
-TYPE_BYTE_LO    = 1
-TYPE_BYTE_HI    = 2
-TYPE_WORD_RES1  = 3
-TYPE_WORD_RES01 = 32
-TYPE_WORD_RES10 = 33
 
-SETPOINT        = 1     # Type: 32  Unit: 0,5 %
-PUMP_COMMAND    = 40    # Type. 1
-OPERATION_MODE  = 42    # Type: 1
-T_MIN           = 44    # Type: 32 Unit: 0,1K
-T_MAX           = 45    # Type: 32 Unit: 0,1K
-P_MIN           = 46    # Type: 32 Unit: 0,1 mWS
-P_MAX           = 47    # Type: 32 Unit: 0,1 mWS
+class FrameType(enum.IntEnum):
+    """Valid frametypes."""
+    REQUEST     = 3
+    RESPONSE    = 0
+
+SETPOINT        = 1     #: Type: 32  Unit: 0,5 %
+PUMP_COMMAND    = 40    #: Type. 1
+OPERATION_MODE  = 42    #: Type: 1
+T_MIN           = 44    #: Type: 32 Unit: 0,1K
+T_MAX           = 45    #: Type: 32 Unit: 0,1K
+P_MIN           = 46    #: Type: 32 Unit: 0,1 mWS
+P_MAX           = 47    #: Type: 32 Unit: 0,1 mWS
 
 COMMAND_ON          = 1
 COMMAND_MIN_SPEED   = 2
