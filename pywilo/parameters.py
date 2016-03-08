@@ -28,6 +28,7 @@
 
 from collections import namedtuple
 import enum
+from pywilo.datatypes import DataType
 
 class Baudrate(enum.IntEnum):
     """Supported baudrates."""
@@ -47,13 +48,25 @@ class FrameType(enum.IntEnum):
     REQUEST     = 3
     RESPONSE    = 0
 
-SETPOINT        = 1     #: Type: 32  Unit: 0,5 %
-PUMP_COMMAND    = 40    #: Type. 1
-OPERATION_MODE  = 42    #: Type: 1
-T_MIN           = 44    #: Type: 32 Unit: 0,1K
-T_MAX           = 45    #: Type: 32 Unit: 0,1K
-P_MIN           = 46    #: Type: 32 Unit: 0,1 mWS
-P_MAX           = 47    #: Type: 32 Unit: 0,1 mWS
+"""
+class DataType(enum.IntEnum):
+    BYTE_LO    = 1
+    BYTE_HI    = 2
+    WORD_RES1  = 3
+    WORD_RES01 = 32
+    WORD_RES10 = 33
+"""
+
+CommandType = namedtuple('CommandType', 'address type range resolution unit')
+
+class Command(enum.Enum):
+    SETPOINT        = CommandType(1, DataType.WORD_RES01, 200, 0.5, "%")
+    PUMP_COMMAND    = CommandType(40, DataType.BYTE_LO, 0xff, None, None)
+    OPERATION_MODE  = CommandType(42, DataType.BYTE_LO, 6, None, None)
+    T_MIN           = CommandType(44, DataType.WORD_RES01, 0xfffe, 0.1, "K")
+    T_MAX           = CommandType(45, DataType.WORD_RES01, 0xfffe, 0.1, "K")
+    P_MIN           = CommandType(46, DataType.WORD_RES01, 0xfffe, 0.1, "m WS")
+    P_MAX           = CommandType(47, DataType.WORD_RES01, 0xfffe, 0.1, "m WS")
 
 COMMAND_ON          = 1
 COMMAND_MIN_SPEED   = 2
