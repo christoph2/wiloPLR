@@ -27,9 +27,7 @@
 ##
 
 
-import serial
 import pywilo.parameters as parameters
-
 
 class Datapoint(object):
 

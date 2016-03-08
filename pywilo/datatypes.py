@@ -26,7 +26,6 @@
 ## s. FLOSS-EXCEPTION.txt
 ##
 
-from collections import namedtuple
 import enum
 
 
